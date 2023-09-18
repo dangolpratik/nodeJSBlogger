@@ -1,0 +1,47 @@
+<%- include("components/header") %>  
+
+<div class="container" id="main" style="min-height: 420px;">
+    <h1>Dashboard</h1>
+    <div class="row">        
+        <div class="col-lg-9">
+            <p>From here you can manage your contributions for NodeJS Blogger.</p>
+            <!-- Existing Blog Posts by that user -->
+            <div class="row">
+                <% if (posts.length < 1){ %>
+                    <h3 class="text-danger"> Don't have any contributions? Add New Post Now!</h3>
+                <% } %>
+
+                <ul class="list-group w-100">
+                    <% posts.length > 0 && posts.forEach((blog)=>{ %>
+
+                    <li class="list-group-item list-group-item-action list-group-item-warning">
+                        <div class="row">
+                            <div class="col-lg-9 my-auto mx-0">
+                                <span class="h5"><%- blog.title.slice(0,100) %></span>
+                            </div>
+                            <div class="col-lg-3 text-right">
+                                <a href="/editPost/<%- blog.id %>"><button type="button" class="btn btn-success align-right">Edit</button></a>
+                                <a href="/deletePost/<%- blog.id %>"><button type="button" class="btn btn-danger align-right">Delete</button></a>
+                            </div>
+                        </div>
+                    </li>    
+                    <% }) %>             
+                </ul>
+            </div>
+        </div>
+            <!-- Sidebar for Gadgets -->
+        <div class="col-lg-3">
+            <div class="sidebar">
+                <h3 class="border-bottom border-secondary text-center py-2 my-1">Welcome ! <br /> <small><%- email %></small></h3>
+                <ul class="my-2">
+                    <li><a href="/addPost/<%- email %>" class="btn btn-info border border-0 text-white btn-lg w-100">Add New Post</a></li> 
+                    <li><a href="/" class="btn btn-success border border-0 text-white btn-lg w-100">Logout</a></li>              
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("components/footer") %>
+
+    

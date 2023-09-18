@@ -1,0 +1,28 @@
+<%- include("components/header") %>  
+
+<div class="container" id="main" style="min-height: 420px;">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="addPost">
+                <div class="mb-2">
+                    <h2><%- post[0].title %></h2>
+                    <div class="text-justify"><%- post[0].content %></div>
+                </div>
+                <div class="border-bottom mt-2 font-italic h6">
+                    Published on: <%- post[0].createdAt.toISOString().slice(0,10) %> &nbsp; | &nbsp;
+                    Last Updated on: <%- post[0].updatedAt.toISOString().slice(0,10) %>
+                </div>
+                <div>
+                    <!--a href="/editPost/<%- post[0].id %>"><button type="button" class="btn btn-success">Edit</button></a>
+                    <a href="/deletePost/<%- post[0].id %>"><button type="button" class="btn btn-danger">Delete</button></a-->
+                    <a href="/"><button type="button" class="btn btn-primary">Back</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <%- include("components/sidebar") %> 
+        </div>
+    </div>
+</div>
+
+<%- include("components/footer") %>  

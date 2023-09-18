@@ -1,0 +1,8 @@
+<div class="sidebar">
+    <h3 class="border-bottom border-secondary">Recent Posts</h3>
+    <ul>
+        <% posts.length > 0 && posts.forEach((blog)=>{ %>
+        <li><a href="/post/<%-blog.id%>"><%- blog.title.slice(0,30) %></a></li>    
+        <% }) %>             
+    </ul>
+</div>

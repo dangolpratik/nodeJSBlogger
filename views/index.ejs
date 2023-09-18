@@ -1,0 +1,36 @@
+<%- include("components/header") %>  
+
+<%- include("components/feature") %>
+
+<div class="container" id="main">
+    <div class="row">
+        <div class="col-lg-9">
+            <!-- Blog Posts -->
+            <div class="row">
+
+                <% if (posts.length < 1){ %>
+                    <h1>No Posts</h1>
+                <% } %>
+        
+               <% posts.length > 0 && posts.forEach((blog)=>{ %>
+
+                <div class="col-lg-6">
+                    <div class="blog-post">
+                        <h2><%- blog.title  %></h2>
+                        <div class="text-justify"><%-blog.content.slice(0,180)%>....</div>
+                        <a href="/post/<%-blog.id%>" class="btn btn-info">Read More</a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+            <!-- Sidebar for Gadgets -->
+        <div class="col-lg-3">
+            <%- include("components/sidebar") %> 
+        </div>
+    </div>
+</div>
+
+<%- include("components/footer") %>
+
+    
